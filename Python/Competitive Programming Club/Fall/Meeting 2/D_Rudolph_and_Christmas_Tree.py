@@ -1,4 +1,4 @@
-for _ in range(int(input())):
+for i in range(int(input())):
     n, b, h = map(int, input().split())
     bases = list(map(int, input().split()))
     
