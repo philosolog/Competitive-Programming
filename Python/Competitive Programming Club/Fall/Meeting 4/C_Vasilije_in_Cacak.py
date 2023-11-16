@@ -4,8 +4,8 @@ for t in range(int(input())):
 	bs = k/2*(1+k)
 	ts = k/2*(2*n-k+1)
 
-	if x <= bs:
-		if x >= ts:
+	if x <= ts:
+		if x >= bs:
 			print("YES")
 		else:
 			print("NO")
