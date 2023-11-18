@@ -1,26 +1,28 @@
+import copy
+
 for t in range(int(input())):
 	h, w, d = [int(x) for x in input().split()]
 	tb = h + d + 1
+	lr = w + d + 1
+	oi = []
 
-	def o(s, q1, q2):
-		return [int(x) for x, c in enumerate(s) if c == q1 or c == q2]
+	def o(l, v):
+		return [int(x) for x, c in enumerate(l) if c == v]
+	
+	for r in range(h):
+		oi.append([*input()]+[" "]*(d+1))
+	for r in range(d+1):
+		oi.append([" "]*lr)
 
-	for ocn in range(h):
-		l = input()
-		s = [l[0]]
-
-		for icn in range(tb):
-			if icn != 0 and icn <= h-1:
-				s = [*l[icn]]
-				p = l[icn-1]
-				pl = len(p)
-				if d > 0:
-					for i in o(p, "+", "\\"):
-						if i+1 > len(s)-1:
-							s += [" "]*(i-pl)+["\\"]
-						else:
-							s[i+1]=str("\\")
-					d -= 1
-
-		
-		print("".join(s))
+	ni = copy.deepcopy(oi)
+	
+	for r in range(tb):
+		for co in o(oi[r], "+"):
+			for e in range(d):
+				ni[r+e+1][co+e+1] = "\\"
+	for r in range(h):
+		for c in range(w):
+			if oi[r][c] != " ":
+				ni[r+d+1][c+d+1] = oi[r][c]
+	for r in range(tb):
+		print("".join(ni[r]))
