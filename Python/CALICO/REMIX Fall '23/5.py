@@ -1,3 +1,5 @@
+# Naive solution (doesn't pass the last bonus case)
+
 import copy
 
 for t in range(int(input())):
