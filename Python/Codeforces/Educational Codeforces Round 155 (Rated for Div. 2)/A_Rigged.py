@@ -1,24 +1,11 @@
 for t in range(int(input())):
-	trc = []
-	c1 = None
-
-	for c in range(int(input())):
-		s, e = [int(x) for x in input().split()]
-
-		if c == 0:
-			c1 = (s, e)
-		else:
-			if s >= c1[0]:
-				trc.append((s, e))
-
-	tv = c1[0] - 1
-
-	for rc in trc:
-		s = rc[0]
-		e = rc[1]
-
-		if e >= c1[1]:
-			tv = -1
+	n = int(input())
+	mc = [int(x) for x in input().split()]
+	o = mc[0]
 	
-	print(tv)
-	
+	for an in range(n-1):
+		a = [int(x) for x in input().split()]
+		if a[0] >= mc[0] and a[1] >= mc[1]:
+			o = -1
+
+	print(o)
