@@ -28,4 +28,4 @@ for _ in range(int(input())):
 		for i in m:
 			print(*i)
 
-# TODO: Modularize the code above.
+# TODO: Modularize the code above and compare it with the editorial on CF.
