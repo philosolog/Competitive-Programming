@@ -1,4 +1,3 @@
-# 
 for _ in range(int(input())):
 	n = int(input())
 	current_integer = 1
@@ -28,3 +27,5 @@ for _ in range(int(input())):
 				diagonal_offset += 1
 		for i in m:
 			print(*i)
+
+# TODO: Modularize the code above.
