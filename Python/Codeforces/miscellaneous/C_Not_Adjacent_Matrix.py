@@ -1,3 +1,4 @@
+# 
 for _ in range(int(input())):
 	n = int(input())
 	current_integer = 1
