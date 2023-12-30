@@ -1,15 +1,31 @@
-g = input()
-n = [x for x in input().split()]
-o = n.count("1")
-tw = n.count("2")
-th = n.count("3")
-f = n.count("4")
-o4 = o//4
-o2 = (o%4)//2
-tw1p = min(tw, o2)
-tw2p = (tw-tw1p)//2
-tw1 = (tw-tw1p)%2
-o1 = o2-2*tw1p+(o%4)%2
-th1 = max(o1, th)
+g = int(input())
+s = [int(_) for _ in input().split()]
+tc = s.count(4)
+c = [3]*s.count(3)
+s = sorted([int(_) for _ in s if _ != 4 and _ != 3])
 
-print(o4 + tw2p + tw1 + th1 + f)
+for i in range(len(s)-1, -1, -1): # Note: reversed(range(a, b)) -> range(b, a-1, -1) (range excludes the last value, and you have to identify the step)
+	v = s[i]
+
+	if v == 2:
+		if 2 in c:
+			c.remove(2)
+
+			tc += 1
+		else:
+			c.append(2)
+	elif v == 1:
+		if 3 in c:
+			c.remove(3)
+
+			tc += 1
+		elif 2 in c: # ?: Theoretically could put a for-loop here for scalability? Or should I find the first occurence of a "not 3" value?
+			c[c.index(2)] += 1
+		elif 1 in c:
+			c[c.index(1)] += 1
+		else:
+			c.append(1)
+
+print(tc + len(c))
+
+# TODO: Optimize the solution to match the editorial.
