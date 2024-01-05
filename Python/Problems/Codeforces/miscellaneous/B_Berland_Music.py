@@ -9,7 +9,54 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		# n = int(input())
+		# a = list(map(int, input().split()))
+		# bs = input()
+		# zc = bs.count("0")
+		# oc = bs.count("1")
+
+		# if zc == 0 or oc == 0 or n == 1:
+		# 	print(*a)
+
+		# 	continue
+
+		# z = []
+		# o = []
+
+		# for i, c in enumerate(bs):
+		# 	if c == "0":
+		# 		if a[i] > zc:
+		# 			z.append([a[i], i])
+		# 	else:
+		# 		if a[i] <= oc:
+		# 			o.append([a[i], i])
+
+		# z = sorted(z, reverse=True)
+		# o = sorted(o, reverse=True)
+
+		# for i in range(len(z)-1, -1, -1):
+		# 	x = z[i]
+		# 	y = o[i]
+			
+		# 	a[x[1]], a[y[1]] = y[0], x[0]
+
+		# print(*a)
+
+		# # ?: Where does my runtime error occur?
+
+		n = int(input())
+		p = list(map(int, input().split()))
+		s = input()
+		l = sorted([[s[i], p[i], i] for i in range(n)])
+		q = [-1]*n
+
+		for i in range(n):
+			q[l[i][2]] = i + 1
+		
+		print(*q)
+			
+
 
 # region fastio
 BUFSIZE = 8192

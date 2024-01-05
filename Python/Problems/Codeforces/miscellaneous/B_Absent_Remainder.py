@@ -9,7 +9,20 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		n = int(input())
+		a = list(map(int, input().split()))
+		y = min(a)
+		o = []
+
+		for i in a:
+			if len(o) == n//2:
+				break
+			if i != y:
+				o.append(i)
+
+		for i in o:
+			print(i, y)
 
 # region fastio
 BUFSIZE = 8192
@@ -78,3 +91,5 @@ input = lambda: sys.stdin.readline().rstrip("\r\n")
 
 if __name__ == "__main__":
 	main()
+
+# TODO: Reread the editorial...
