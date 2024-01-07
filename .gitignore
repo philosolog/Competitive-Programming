@@ -1,5 +1,4 @@
 .DS_Store
 */.cph/*
-!/bin/.cph/
-/bin/.cph/*
-!/bin/.cph/README.md
+/bin/*
+!/bin/README.md
