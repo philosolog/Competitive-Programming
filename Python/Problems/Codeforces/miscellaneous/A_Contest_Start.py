@@ -8,26 +8,15 @@ if sys.version_info[0] < 3:
 	from __builtin__ import xrange as range
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
-def lus(x, y):
-	xl = len(x)
-	s = None
-
-	for i in range(xl):
-		if xl%(i+1) == 0:
-			if x.replace(x[:i+1], "") == "" and y.replace(x[:i+1], "") == "":
-				s = x[:i+1]
-		
-	return s*x.count(s)*y.count(s) if s else -1
 def main():
 	for _ in range(int(input())):
-		a = input()
-		b = input()
-		x = min(a, b)
-		y = max(a, b)
-		
-		print(lus(x, y)) # ?: How come it still works after removing the check for x*k = y? Why did it also run with less memory usage?
+		n, x, t = map(int, input().split())
+		d = 0
 
-	# TODO: See if this code could be optimized by the editorial solution.
+		for i in range(n):
+			d += min(i, (i*x)//t)
+
+		print(d)
 
 # region fastio
 BUFSIZE = 8192
