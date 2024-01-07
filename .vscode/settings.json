@@ -1,4 +1,4 @@
 {
-	"cph.general.saveLocation": "",
+	"cph.general.saveLocation": "bin",
 	"cph.general.defaultLanguageTemplateFileLocation": "Python\\Templates\\PyRival_Template.py"
 }
