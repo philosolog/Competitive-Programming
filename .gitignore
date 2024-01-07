@@ -2,3 +2,4 @@
 */.cph/*
 !/bin/.cph/
 /bin/.cph/*
+!/bin/.cph/README.md
