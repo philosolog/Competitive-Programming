@@ -10,9 +10,37 @@ if sys.version_info[0] < 3:
 
 def main():
 	for _ in range(int(input())):
-		d = int(input())
+		l = 0
+		r = None
+		bl = []
 
-		print((1+d)*(1+2*d))
+		for __ in range(int(input())):
+			a, x = map(int, input().split())
+			
+			if a == 1:
+				if l < x:
+					l = x
+			elif a == 2:
+				if r == None:
+					r = x
+				else:
+					if r > x:
+						r = x
+			elif a == 3:
+				if r == None:
+					bl.append(x)
+				else:
+					if x >= l and x <= r:
+						bl.append(x)
+			
+		if r < l:
+			print(0)
+		else:
+			for i in range(len(bl)-1, -1, -1):
+				if bl[i] < l or bl[i] > r:
+					del bl[i]
+
+			print(r-l+1-len(bl))
 
 # region fastio
 BUFSIZE = 8192
