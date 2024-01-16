@@ -9,14 +9,25 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	rn = int(input())
-	l = [input() for _ in range(rn)]
-	v = "YES"
+	n = int(input())
+	d = []
+	o = []
 
-	for i, r in enumerate(l):
-		
+	for i in range(n):
+		l = input()
 
-	print(v)
+		for j in range(n):
+			if i == j or i == n-j-1:
+				if l[j] not in d:
+					d.append(l[j])
+			else:
+				if l[j] not in o:
+					o.append(l[j])
+
+	if len(d) == 1 and len(o) == 1 and d[0] != o[0]:
+		print("YES")
+	else:
+		print("NO")
 
 	# Note: len([set(...)]) instead of len(set(...))...
 
