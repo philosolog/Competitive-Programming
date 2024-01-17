@@ -12,7 +12,7 @@ def main():
 	for _ in range(int(input())):
 		n = int(input())
 		a = sorted(list(map(int, input().split())))
-		na = [a[0]]
+		na = [a[0]] # Note: Could be further optimized by checking for greater values instead of finding the max of a list.
 
 		if len(a) == 1:
 			print(a[0])
