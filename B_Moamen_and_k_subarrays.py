@@ -9,7 +9,20 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		n, k = map(int, input().split())
+		l = [int(x) for x in input().split()]
+		sl = sorted([[x, i] for i, x in enumerate(l)])
+		c = 1
+
+		for i in range(1, n):
+			if sl[i][1] != sl[i-1][1]+1: # ?: How can I intuitively think of this next time lol?
+				c += 1
+
+		if c > k:
+			print("No")
+		else:
+			print("Yes")
 
 # region fastio
 BUFSIZE = 8192

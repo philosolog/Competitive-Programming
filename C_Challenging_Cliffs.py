@@ -9,7 +9,14 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		n = int(input())
+		l = [int(x) for x in input().split()]
+		m1 = l.pop(l.index(min(l)))
+		m2 = l.pop(l.index(min(l)))
+		nl = [m1] + sorted(l) + [m2]
+
+		print(*nl)
 
 # region fastio
 BUFSIZE = 8192

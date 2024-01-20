@@ -11,18 +11,15 @@ if sys.version_info[0] < 3:
 def main():
 	for _ in range(int(input())):
 		n = int(input())
-		l = [int(v) - i for i, v in enumerate(input().split())]
+		l = [int(x) for x in input().split()]
 		t = 0
 		
-		for v in l:
-			c = l.count(v)
+		for i in range(n):
+			for j in range(l[i]-i-2, n, l[i]): # ?: How does the list indexing work here?
+				if i < j and l[i]*l[j] == i + j + 2:
+					t += 1
 
-			if c > 1:
-				t += c-1
-
-		print(t//2)
-
-	# TODO: Do this with collections.Counter()
+		print(t)
 
 # region fastio
 BUFSIZE = 8192
