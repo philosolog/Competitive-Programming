@@ -9,7 +9,73 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		__ = input()
+		k, n, m = map(int, input().split())
+		nl = list(map(int, input().split()))
+		ml = list(map(int, input().split()))
+		l = [0 for ___ in range(k)]
+		s = []
+		ni = 0
+		mi = 0
+		valid = True
+
+		def check(v):
+			if v == 0:
+				l.append(0)
+				s.append(0)
+
+				return True
+			else:
+				if v <= len(l):
+					l[v-1] = 1
+					s.append(v)
+
+					return True
+				else:
+					return False
+
+		while max(n-1-ni, m-1-mi) >= 0:
+			if ni < n:
+				if mi < m:
+					if nl[ni] < ml[mi]:
+						if check(nl[ni]) == False:
+							valid = False
+							print(-1)
+
+							break
+
+						ni += 1
+					else:
+						if check(ml[mi]) == False:
+							valid = False
+							print(-1)
+							
+							break
+
+						mi += 1
+				else:
+					if check(nl[ni]) == False:
+						valid = False
+						print(-1)
+						
+						break
+					
+					ni += 1
+			else:
+				if check(ml[mi]) == False:
+					valid = False
+					print(-1)
+					
+					break
+				
+				mi += 1
+		
+		if valid == True:
+			print(*s)
+
+		# TODO: Optimize based on editorial. Read the editorial...
+
 
 # region fastio
 BUFSIZE = 8192
