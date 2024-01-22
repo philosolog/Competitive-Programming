@@ -9,7 +9,21 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		n = input()
+		m = 1
+		p = None
+
+		for i, v in enumerate(n):
+			if i != 0:
+				nn = int(n[0:i-1] + str(int(v) + p) + n[i+1:]) # ?: Could you optimize string manipulation by moving digits?
+
+				if nn > m:
+					m = nn
+
+			p = int(v)
+		
+		print(m)
 
 # region fastio
 BUFSIZE = 8192
