@@ -9,7 +9,21 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		n = int(input())
+		l = [int(v) - i for i, v in enumerate(input().split())]
+		t = 0
+		
+		for v in l:
+			c = l.count(v)
+
+			if c > 1:
+				t += c-1
+
+		print(t//2)
+
+	# TODO: Do this with collections.Counter()
+	# !: TLE
 
 # region fastio
 BUFSIZE = 8192
