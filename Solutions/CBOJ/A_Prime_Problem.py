@@ -13,7 +13,7 @@ for _ in range(int(input())):
 
 			if v == True:
 				if tv*2 <= b:
-					fb = s//tv + 2 # !: I am dying here. :) The algo. improperly counts past the first extend?
+					fb = s//tv + 2 # !: I am dying here. :) The algo. improperly counts past the first extend after 1000?
 					lb = (fb+b-s-1)//tv
 
 					print(fb)
