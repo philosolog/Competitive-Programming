@@ -1,17 +1,11 @@
+l = []
+
 for _ in range(int(input())):
 	a, b = map(int, input().split())
-	l = [True for _ in range(b+1)]
-	l[0] = False
 
-	for i, v in enumerate(l):
-		if v == True:
-			c = 2*(i+1)-1
+	if len(l) >= b:
+		print(l[max(0, a-2):max(0, b-2)].count(True))
+	else:
+		l.extend([True]*(b-len(l))) # 0 -> 2
 
-			while c <= b:
-				l[c] = False
-				
-				c += i + 1
-	
-	print(l[a-1:len(l)-1].count(True))
-
-	# !: TLE
+		 
