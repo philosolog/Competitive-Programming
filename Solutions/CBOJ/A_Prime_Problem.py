@@ -2,27 +2,17 @@ l = []
 
 for _ in range(int(input())):
 	a, b = map(int, input().split())
+	c = len(l) - 1
 
-	if len(l) < b:
-		s = len(l)
+	if b - 1 > c:
+		al = [True for __ in range(b-1-c)]
 
-		l.extend([True]*(b-s-1)) # 0 -> 2
-		
 		for i, v in enumerate(l):
-			tv = i+2
-
 			if v == True:
-				if tv*2 <= b:
-					fb = s//tv + 2 # !: I am dying here. :) The algo. improperly counts past the first extend after 1000?
-					lb = (fb+b-s-1)//tv
+				if i != 0:
 
-					for j in range(fb, lb+1):
-						if j*tv <= b-1:
-							if l[j*tv-2] != False: # ?: Necessary?
-								l[j*tv-2] = False
-						else:
-							break
 				else:
-					break
-	
-	print(l[max(0, a-2):b-1].count(True)) # ?: max(0, b-2).. b-1?
+					l[i] = False
+
+
+	print(l[a-1:b-1].count(True))
