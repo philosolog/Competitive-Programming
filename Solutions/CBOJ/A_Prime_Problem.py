@@ -10,9 +10,11 @@ for _ in range(int(input())):
 		for i, v in enumerate(l):
 			if v == True:
 				if i != 0:
-
+					
 				else:
 					l[i] = False
 
 
 	print(l[a-1:b-1].count(True))
+
+# TODO: Incomplete
