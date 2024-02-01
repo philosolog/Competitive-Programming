@@ -9,15 +9,23 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	for _ in range(int(input())):
-		n = int(input())
-		s = input()
-		z = s.count("0")
+	n, k, x = map(int, input().split())
+	sl = sorted([int(_) for _ in input().split()])
+	s = 0
 
-		if z == 1 or z%2 == 0:
-			print("BOB")
-		else:
-			print("ALICE")
+	for i, v in enumerate(sl):
+		if i != 0:
+			d = abs(v-sl[i-1])
+
+			if d > x:
+				if k > 0:
+					if 2*x < d:
+						k -= 1
+						s += 1
+				else:
+					s += 1
+
+	print(s+1)
 
 # region fastio
 BUFSIZE = 8192
