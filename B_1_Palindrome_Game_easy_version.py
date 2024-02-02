@@ -9,7 +9,32 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	pass
+	for _ in range(int(input())):
+		n = int(input())
+		s = [*input()]
+		print(s)
+		h = n//2 if n%2 == 0 else n//2+1
+		at = True
+		a = 0
+		b = 0
+
+		for i in range(h):
+			if s[i] != s[-(i+1)]:
+				if at == True:
+					a += 1
+					at = False
+				else:
+					b += 1
+					at = True
+			
+
+		if a == b:
+			print("DRAW")
+		elif a > b:
+			print("BOB")
+		else:
+			print("ALICE")
+				
 
 # region fastio
 BUFSIZE = 8192
