@@ -11,21 +11,27 @@ if sys.version_info[0] < 3:
 def main():
 	n, k, x = map(int, input().split())
 	sl = sorted([int(_) for _ in input().split()])
-	s = 0
+	nsl = []
 
 	for i, v in enumerate(sl):
 		if i != 0:
 			d = abs(v-sl[i-1])
 
-			if d > x:
-				if k > 0:
-					if 2*x < d:
-						k -= 1
-						s += 1
+			if d//x != 0:
+				if d%x == 0: # Note: Instead of this check, see the equivalence of "ceil(d/x)-1".
+					nsl.append(d//x-1)
 				else:
-					s += 1
+					nsl.append(d//x)
+	
+	nsl = sorted(nsl, reverse=True)
 
-	print(s+1)
+	for i in range(len(nsl)-1, -1, -1):
+		if k - nsl[i] >= 0:
+			k -= nsl.pop(i)
+		else:
+			break
+
+	print(len(nsl)+1)
 
 # region fastio
 BUFSIZE = 8192
