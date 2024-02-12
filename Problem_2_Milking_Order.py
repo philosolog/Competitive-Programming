@@ -9,24 +9,37 @@ if sys.version_info[0] < 3:
 	from future_builtins import ascii, filter, hex, map, oct, zip
 
 def main():
-	n, m, k = map(int, input().split())
-	cl = reversed(list(map(int, input().split())))
-	mo = [0 for _ in range(n)]
-
-	for _ in range(k):
-		c, p = map(int, input().split())
-
-		mo[p-1] = c
+	n, k = None, None
+	cl = None
+	mo = None
 	
-	mo = reversed(mo)
+	with open("milkorder.in", "r") as fin:
+		for _ in range(int(fin.readline())):
+			n, m, k = map(int, fin.readline().split())
+			cl = list(map(int, fin.readline().split()))[::-1]
+			mo = [0 for _ in range(n)]
 
-	for v in enumerate(cl):
-		if mo.index[cl] == -1:
-			mo[mo.index[0]] = v
+			for _ in range(k):
+				c, p = map(int, input().split())
 
-	mo = reversed(mo)
+				mo[p-1] = c
+	
+	mo = mo[::-1]
+	c = 0
 
-	print(mo.index(1) or mo.index(0))
+	for v in cl:
+		if v in mo:
+			c = mo.index(v)
+		else:
+			mo[mo.index(0, c)] = v
+
+	mo = mo[::-1]
+
+	with open("milkorder.out", "w") as fout:
+		if 1 in mo:
+			fout.write(mo.index(1)+1)
+		else:
+			fout.write(mo.index(0)+1)
 
 
 # region fastio
