@@ -15,7 +15,10 @@ def main():
 		ll = [l-x for x in ol]
 		rl = [r-x for x in ol]
 
-		for i, v in reversed(list(enumerate(ol)))
+		for i, v in reversed(list(enumerate(ol))):
+			del ol[i]
+
+			for vv in 
 
 # region fastio
 BUFSIZE = 8192
