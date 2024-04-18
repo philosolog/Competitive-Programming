@@ -16,3 +16,6 @@ This is basically an archive of my solutions to various competitive programming 
 So yeah, this is mainly for my personal use!
 
 If you'd like to suggest some edits or just chat, [contact me on Discord](https://discord.com/users/897728576659529780)!
+
+## Psst...
+I use the built-in editor for [my LeetCode submissions](https://leetcode.com/philosolog/). 😛
