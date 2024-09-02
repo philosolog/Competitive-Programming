@@ -14,9 +14,10 @@ This is basically an archive of my solutions to various competitive programming 
 
 # Contribution
 If you want to improve my code, answer some questions I have, or check out my notes, feel free to check out the comments prefixed by,
-- `TODO: `,
-- `?: `,
-- and `Note: `.
+- `TODO: ` (stuff I'd like to redo)
+- `?: ` (questions I have)
+- `!: ` (concerns/errors I've warned my future self about)
+- and `Note: ` (notes for future me)
 
 Suggesting improvements? Make an [issue](https://github.com/philosolog/Competitive-Programming/issues)/[pull](https://github.com/philosolog/Competitive-Programming/pulls) or [contact me on Discord](https://discord.com/users/897728576659529780)!
 
