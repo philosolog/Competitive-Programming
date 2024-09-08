@@ -39,6 +39,6 @@ class Solution:
 
         return partitions
 
-# TODO: Fully understand
+# TODO: Fully optimize
 # @lc code=end
 
