@@ -7,18 +7,15 @@
 # @lc code=start
 class Solution:
     def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
-        prefixes = [arr[0]]
         output = []
 
-        for i, v in enumerate(arr):
-            if i != 0:
-                prefixes.append(prefixes[i-1]^v)
-
+        for i in range(1, len(arr)):
+            arr[i] ^= arr[i-1]
         for [x, y] in queries:
             if x != 0:
-                output.append(prefixes[x-1]^prefixes[y])
+                output.append(arr[x-1]^arr[y])
             else:
-                output.append(prefixes[y])
+                output.append(arr[y])
         
         return output  
 # @lc code=end
