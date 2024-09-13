@@ -9,9 +9,9 @@ class Solution:
     def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
         output = []
 
-        for i in range(1, len(arr)):
+        for i in range(1, len(arr)): # Note: Could also use list(accumulate())
             arr[i] ^= arr[i-1] # Note: Originally did NOT utilize the input array. Do note that this method changes the input array, so it is not recommended though an optimization.
-        for [x, y] in queries:
+        for x, y in queries:
             if x != 0:
                 output.append(arr[x-1]^arr[y])
             else:
