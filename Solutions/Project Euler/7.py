@@ -1,20 +1,29 @@
-count = 1
-primes = [2]
-current = 3
+def isPrime(k):
+	if (k <= 1):
+		return 0
+	if (k == 2 or k == 3):
+		return 1
+	if (k % 2 == 0 or k % 3 == 0):
+		return 0
+	
+	for i in range(5, 1 + int(k ** 0.5), 6):
+		if (k % i == 0 or k % (i + 2) == 0):
+			return 0
 
-while count <= 10001:
-	is_prime = True
+	return 1
+def nThPrime(n):
+	i = 2
+	
+	while(n > 0):
+		if(isPrime(i)):
+			n -= 1
 
-	for prime in primes:
-		if current % prime == 0:
-			is_prime = False
+		i += 1
 
-			break
+	i -= 1
+	
+	return i
 
-	if is_prime:
-		count += 1
-		primes.append(current)
+print(nThPrime(10001)) # 104743
 
-	current += 1
-
-print(current)
+# TODO: Check why my old solution failed
